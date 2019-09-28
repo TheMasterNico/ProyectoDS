@@ -39,7 +39,11 @@ public class Nodo
     public void setConex(Conexion conex) {
         this.conex.add(conex);
     }
-    
+     
+    @Override
+    public String toString() {
+        return "\n \tNodo [Lugar=" + Lugar + ", Conexiones=" + conex + "]";
+    }
     
     
 }

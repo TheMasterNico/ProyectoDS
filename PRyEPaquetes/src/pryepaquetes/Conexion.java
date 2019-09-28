@@ -21,5 +21,10 @@ public class Conexion
         this.Origen = Origen;
         this.Destino = Destino;
         this.Distancia = Distancia;
-    }    
+    }  
+    @Override
+    public String toString() {
+        return "\n\t\tConexion [Origen=" + Origen.getLugar() + ", Destino=" + Destino.getLugar() + ", Distancia="
+                + Distancia + "]";
+    }   
 }

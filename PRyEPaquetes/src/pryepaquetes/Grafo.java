@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Agradecimientos a raidentrance 
+ *(https://devs4j.com/2017/11/24/implementa-un-grafo-de-ciudades-en-java/)
+ * En su web pude ver y basarme en el código para realizar mi propia version 
  */
 
 package pryepaquetes;
@@ -21,7 +21,11 @@ public class Grafo
     public void setNodo(Nodo nodo) {
         this.nodo.add(nodo);
     }
-    
+     
+    @Override
+    public String toString() {
+        return "Graph [Nodos=" + nodo + "]";
+    }
     
     
 }
