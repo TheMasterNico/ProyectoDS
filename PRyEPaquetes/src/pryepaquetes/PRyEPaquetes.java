@@ -21,6 +21,8 @@ public class PRyEPaquetes
 {
     public static void main(String[] args)
     {
+        
+        long startTime = System.nanoTime();
         char[] LETRAS = {
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
             'L', 'M', 'N', 'O', 'P' ,'Q', 'R', 'S', 'T', 'U', 'V', 'W', 
@@ -49,19 +51,12 @@ public class PRyEPaquetes
                 int index_or = charPosEnArray(parte[0].charAt(0), LETRAS, 0); // Nodo origen
                 int index_dest = charPosEnArray(parte[1].charAt(0), LETRAS, 0); // Nodo destino
                 
-                /*System.out.print(parte[0] + ":");
-                System.out.print(index_or + ":");
-                System.out.print(flag[index_or] + ":");*/
                 if(flag[index_or] != 200)  // para que no vuelva a crear el nodo
                 {
                     nodos[index_or] = new Nodo(parte[0]); // Creamos el nodo
                     flag[index_or] = 200;
                     ElGrafo.setNodo(nodos[index_or]);
                 }
-                /*System.out.print(parte[1] + ":");
-                System.out.print(index_dest + ":");
-                System.out.print(flag2[index_dest] + ":");
-                System.out.println("");*/
                 if(flag[index_dest] != 200)  // para que no vuelva a crear el nodo
                 {
                     nodos[index_dest] = new Nodo(parte[1]); // Creamos el nodo
@@ -81,26 +76,21 @@ public class PRyEPaquetes
         catch (IOException ex) {
             Logger.getLogger(PRyEPaquetes.class.getName()).log(Level.SEVERE, null, ex);
         }
-                
+       
+        //System.out.println(ElGrafo);
+        long endTime = System.nanoTime() - startTime;
         
+        startTime = System.nanoTime();
+        ElGrafo.DelNodo(2); // Eliminando un Nodo
+        long endTime2 = System.nanoTime() - startTime;
         
-       /*Nodo P1 = new Nodo("Carrera 50 #181-14");
-       Nodo P2 = new Nodo("Carrera 19 #146-86");
-       Nodo P3 = new Nodo("Diagonal 151 #145-53");
-       Nodo P4 = new Nodo("Universidad Nacional de Colombia");
-       
-       P1.setConex(new Conexion(P1, P2, 190));
-       P1.setConex(new Conexion(P1, P3, 20));
-       P1.setConex(new Conexion(P1, P4, 120));
-       
-       ElGrafo.setNodo(P1);
-       ElGrafo.setNodo(P2);
-       ElGrafo.setNodo(P3);
-       ElGrafo.setNodo(P4);*/
-       
-       System.out.println(ElGrafo);
-       
-       
+        startTime = System.nanoTime();
+        System.out.println(ElGrafo);
+        long endTime3 = System.nanoTime() - startTime;
+        
+        System.out.println("Duración iniciar: " + endTime/1e6 + " ms");
+        System.out.println("Duración remover: " + endTime2/1e6 + " ms");
+        System.out.println("Duración print: " + endTime3/1e6 + " ms");
        
     }
 

@@ -16,10 +16,20 @@ import java.util.List;
 
 public class Grafo 
 {
-    List<Nodo> nodo = new ArrayList<>();
+    ArrayDinamico<Nodo> nodo = new ArrayDinamico(1);
 
     public void setNodo(Nodo nodo) {
-        this.nodo.add(nodo);
+        this.nodo.PushBack(nodo);
+    }
+    
+    public void DelNodo(int i)
+    {
+        this.nodo.Remove(i);
+    }
+    
+    public void delConex(int i)
+    {
+        
     }
      
     @Override

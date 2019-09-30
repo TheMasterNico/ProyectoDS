@@ -16,11 +16,11 @@ import java.util.List;
 
 public class Nodo 
 {
-    private String Lugar;
-    private List<Conexion> conex;
+    String Lugar;
+    ArrayDinamico<Conexion> conex;
 
     public Nodo(String Lugar) {
-        this.conex = new ArrayList<>();
+        this.conex = new ArrayDinamico(1);
         this.Lugar = Lugar;
     }
 
@@ -32,12 +32,16 @@ public class Nodo
         this.Lugar = Lugar;
     }
 
-    public List<Conexion> getConex() {
+    public ArrayDinamico<Conexion> getConex() {
         return conex;
     }
 
     public void setConex(Conexion conex) {
-        this.conex.add(conex);
+        this.conex.PushBack(conex);
+    }
+
+    public void delConex(int i) {
+        this.conex.Remove(i);
     }
      
     @Override
